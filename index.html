@@ -81,7 +81,13 @@
       const resultDate = new Date(startDate);
       resultDate.setDate(startDate.getDate() + daysToAdd);
 
-      const formattedDate = resultDate.toISOString().split('T')[0];
+      // Format as "22 August 2025"
+      const formattedDate = resultDate.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+
       document.getElementById('result').textContent = `Result: ${formattedDate}`;
     }
   </script>
